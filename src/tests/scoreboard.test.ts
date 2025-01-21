@@ -57,7 +57,7 @@ describe('Scoreboard', () => {
     expect(game2.describedScore()).toBe('Team 1 1 - Team 2 2');
   });
 
-  describe('should throw and error', () => {
+  describe('should throw an error', () => {
 
     it('when adding a match with invalid arguments', () => {
       const scoreboard = new Scoreboard();
@@ -88,6 +88,7 @@ describe('Scoreboard', () => {
         const scoreboard = new Scoreboard();
         scoreboard.startMatch('Team 1', 'Team 2');
         expect(() => scoreboard.updateScore('Team 1', 'Team 2', 1, 2, 4)).toThrow();
+        expect(() => scoreboard.updateScore('Team 1', 'Team 2', 1)).toThrow();
       });
 
       it('with invalid score', () => {

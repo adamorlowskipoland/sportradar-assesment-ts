@@ -35,6 +35,22 @@ export class Scoreboard {
     this.matches = this.matches.filter(match => !isSameMatch(match, homeTeam, awayTeam));
   }
 
+  updateScore(homeTeam: string, awayTeam: string, homeTeamScore: number, awayTeamScore: number): void {
+    if (arguments.length !== 4) {
+      throw new Error('Score must have four arguments');
+    }
+
+    if (typeof homeTeamScore !== 'number' || typeof awayTeamScore !== 'number') {
+      throw new Error('Score must be numbers');
+    }
+
+    const match = this.findMatch(homeTeam, awayTeam);
+    if (match) {
+      match.homeTeamScore = homeTeamScore;
+      match.awayTeamScore = awayTeamScore;
+    }
+  }
+
   getSummary(): Match[] {
     return this.matches
       .slice()
