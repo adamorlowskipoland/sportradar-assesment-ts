@@ -28,7 +28,7 @@ export class Scoreboard {
       throw new Error('Match must have two teams');
     }
 
-    this.matches.push(new Match(homeTeam, awayTeam));
+    this.matches.unshift(new Match(homeTeam, awayTeam));
   }
 
   finishMatch(homeTeam: string, awayTeam: string): void {
