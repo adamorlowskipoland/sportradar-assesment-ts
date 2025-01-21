@@ -4,7 +4,6 @@ import { Match } from '../lib/match';
 describe('Match', () => {
 
   describe('when creating a match', () => {
-
     it('should be able to create a match with two teams', () => {
       const match = new Match('Team 1', 'Team 2');
       expect(match.homeTeam).toBe('Team 1');
@@ -12,7 +11,9 @@ describe('Match', () => {
       expect(match.homeTeamScore).toBe(0);
       expect(match.awayTeamScore).toBe(0);
       expect(match.createdAt).toBeDefined();
+      expect(match.logSummary).toBeDefined();
     });
+
 
     describe('with invalid arguments', () => {
       it('should throw an error when no teams are provided', () => {
@@ -38,11 +39,11 @@ describe('Match', () => {
       });
     });
 
+
   });
 
 
   describe('score', () => {
-
     it('returns total score', () => {
       const match = new Match('Team 1', 'Team 2');
       expect(match.totalScore()).toBe(0);
@@ -58,7 +59,7 @@ describe('Match', () => {
       match.awayTeamScore = 2;
       expect(match.describedScore()).toBe('Team 1 1 - Team 2 2');
     });
-
   });
+
 
 });

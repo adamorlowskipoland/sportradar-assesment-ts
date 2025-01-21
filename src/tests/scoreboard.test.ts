@@ -5,6 +5,7 @@ describe('Scoreboard', () => {
   it('should be able to create a scoreboard', () => {
     const scoreboard = new Scoreboard();
     expect(scoreboard).toBeDefined();
+    expect(scoreboard.logSummary).toBeDefined();
   });
 
   it('should add a match to the scoreboard', () => {
@@ -80,6 +81,8 @@ describe('Scoreboard', () => {
       expect(summary[2].describedScore()).toBe('Mexico 0 - Canada 5');
       expect(summary[3].describedScore()).toBe('Argentina 3 - Australia 1');
       expect(summary[4].describedScore()).toBe('Germany 2 - France 2');
+
+      scoreboard.logSummary();
     });
   });
 

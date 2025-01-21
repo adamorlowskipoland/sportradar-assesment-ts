@@ -26,4 +26,16 @@ export class Match {
   describedScore(): string {
     return `${this.homeTeam} ${this.homeTeamScore} - ${this.awayTeam} ${this.awayTeamScore}`;
   }
+
+  // README.md: This is not needed,
+  // I added it, in case you want to check the lib in a browser console
+  logSummary(): void {
+    console.table([{
+      homeTeam: this.homeTeam,
+      awayTeam: this.awayTeam,
+      homeTeamScore: this.homeTeamScore,
+      awayTeamScore: this.awayTeamScore,
+      createdAt: this.createdAt,
+    }]);
+  }
 };

@@ -59,4 +59,10 @@ export class Scoreboard {
         return scoreDiff === 0 ? b.createdAt.getTime() - a.createdAt.getTime() : scoreDiff;
       });
   }
+
+  // README.md: This is not needed,
+  // I added it, in case you want to check the lib in a browser console
+  logSummary(): void {
+    console.table(this.getSummary());
+  }
 };
