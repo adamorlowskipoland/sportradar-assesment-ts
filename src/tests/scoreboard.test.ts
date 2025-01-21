@@ -21,8 +21,8 @@ describe('Scoreboard', () => {
     expect(matches.length).toBe(1);
 
     scoreboard.finishMatch('Team 1', 'Team 2');
-    const matches = scoreboard.getSummary();
-    expect(matches.length).toBe(0);
+    const updatedMatches = scoreboard.getSummary();
+    expect(updatedMatches.length).toBe(0);
   });
 
   it('updates a match score', () => {
