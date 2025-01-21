@@ -1,5 +1,11 @@
 # sportradar-assesment-ts
 
+## Install dependencies
+
+```bash
+npm install
+```
+
 ## Run tests
 
 ```bash
