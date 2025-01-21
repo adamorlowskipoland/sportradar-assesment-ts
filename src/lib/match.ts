@@ -5,7 +5,7 @@ export class Match {
     public homeTeamScore: number = 0,
     public awayTeamScore: number = 0,
   ) {
-    if (homeTeam === undefined || awayTeam === undefined) {
+    if (arguments.length !== 2) {
       throw new Error('Match must have two teams');
     }
 
@@ -15,10 +15,6 @@ export class Match {
 
     if (homeTeam === awayTeam) {
       throw new Error('Home team and away team cannot be the same');
-    }
-
-    if (arguments.length > 2) {
-      throw new Error('Match must have two teams');
     }
   }
 
