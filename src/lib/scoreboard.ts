@@ -11,6 +11,10 @@ export class Scoreboard {
     return this.matches.some(match => isSameMatch(match, homeTeam, awayTeam) || isSameMatch(match, awayTeam, homeTeam));
   }
 
+  private findMatch(homeTeam: string, awayTeam: string): Match | undefined {
+    return this.matches.find(match => isSameMatch(match, homeTeam, awayTeam));
+  }
+
   startMatch(homeTeam: string, awayTeam: string): void {
     if (this.isGameInProgress(homeTeam, awayTeam)) {
       throw new Error('Match already exists');
