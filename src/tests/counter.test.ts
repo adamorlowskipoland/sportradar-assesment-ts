@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { Counter } from '../counter'
+import { Counter } from '../lib/counter'
 
 describe('counter', () => {
   describe('increment function', () => {
