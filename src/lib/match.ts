@@ -9,6 +9,10 @@ export class Match {
       throw new Error('Match must have two teams');
     }
 
+    if (typeof homeTeam !== 'string' || typeof awayTeam !== 'string') {
+      throw new Error('Teams must be strings');
+    }
+
     if (homeTeam === awayTeam) {
       throw new Error('Home team and away team cannot be the same');
     }
