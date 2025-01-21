@@ -12,7 +12,11 @@ export class Scoreboard {
   }
 
   private findMatch(homeTeam: string, awayTeam: string): Match | undefined {
-    return this.matches.find(match => isSameMatch(match, homeTeam, awayTeam));
+    const match = this.matches.find(match => isSameMatch(match, homeTeam, awayTeam));
+    if (!match) {
+      throw new Error('Match not found');
+    }
+    return match;
   }
 
   startMatch(homeTeam: string, awayTeam: string): void {
@@ -25,5 +29,14 @@ export class Scoreboard {
     }
 
     this.matches.push(new Match(homeTeam, awayTeam));
+  }
+
+  getSummary(): Match[] {
+    return this.matches
+      .slice()
+      .sort((a, b) => {
+        const scoreDiff = b.totalScore() - a.totalScore();
+        return scoreDiff === 0 ? b.createdAt.getTime() - a.createdAt.getTime() : scoreDiff;
+      });
   }
 };
