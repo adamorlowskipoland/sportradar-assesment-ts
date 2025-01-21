@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { Match } from '../lib/match';
 
 describe('Match', () => {
+
   describe('when creating a match', () => {
 
     it('should be able to create a match with two teams', () => {
@@ -10,6 +11,7 @@ describe('Match', () => {
       expect(match.awayTeam).toBe('Team 2');
       expect(match.homeTeamScore).toBe(0);
       expect(match.awayTeamScore).toBe(0);
+      expect(match.createdAt).toBeDefined();
     });
 
     describe('with invalid arguments', () => {
@@ -37,6 +39,7 @@ describe('Match', () => {
     });
 
   });
+
 
   describe('score', () => {
 
