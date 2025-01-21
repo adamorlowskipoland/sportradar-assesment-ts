@@ -11,6 +11,9 @@ export class Scoreboard {
     return this.matches.some(match => isSameMatch(match, homeTeam, awayTeam) || isSameMatch(match, awayTeam, homeTeam));
   }
 
+
+  // I assume in real life scenario, there would be a match id
+  // I skipped implementing it, for simplicity
   private findMatch(homeTeam: string, awayTeam: string): Match | undefined {
     const match = this.matches.find(match => isSameMatch(match, homeTeam, awayTeam));
     if (!match) {

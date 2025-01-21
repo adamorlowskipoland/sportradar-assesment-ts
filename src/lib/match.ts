@@ -5,6 +5,7 @@ export class Match {
     public homeTeamScore: number = 0,
     public awayTeamScore: number = 0,
     public createdAt: Date = new Date(),
+    // I assume in real life scenario, there would also be a match id
   ) {
     if (arguments.length !== 2) {
       throw new Error('Match must have two teams');
