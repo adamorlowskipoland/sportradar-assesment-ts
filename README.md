@@ -18,8 +18,8 @@ npm run test
 npm run start
 ```
 
-#### The Scoreboard is attached to `document.scoreboard`.
-#### You can check the lib in a browser console, see the following example:
+ The Scoreboard is attached to `document.scoreboard`.
+ You can check the lib in a browser console, see the following example:
 
 ![Browser example](/public/browser-example.png)
 
