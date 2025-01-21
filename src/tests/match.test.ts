@@ -38,14 +38,24 @@ describe('Match', () => {
 
   });
 
-  it('returns total score', () => {
-    const match = new Match('Team 1', 'Team 2');
-    expect(match.totalScore()).toBe(0);
-  });
+  describe('score', () => {
 
-  it('returns described score', () => {
-    const match = new Match('Team 1', 'Team 2');
-    expect(match.describedScore()).toBe('Team 1 0 - Team 2 0');
+    it('returns total score', () => {
+      const match = new Match('Team 1', 'Team 2');
+      expect(match.totalScore()).toBe(0);
+      match.homeTeamScore = 1;
+      match.awayTeamScore = 2;
+      expect(match.totalScore()).toBe(3);
+    });
+
+    it('returns described score', () => {
+      const match = new Match('Team 1', 'Team 2');
+      expect(match.describedScore()).toBe('Team 1 0 - Team 2 0');
+      match.homeTeamScore = 1;
+      match.awayTeamScore = 2;
+      expect(match.describedScore()).toBe('Team 1 1 - Team 2 2');
+    });
+
   });
 
 });
