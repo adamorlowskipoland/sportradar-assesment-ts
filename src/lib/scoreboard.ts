@@ -31,6 +31,10 @@ export class Scoreboard {
     this.matches.push(new Match(homeTeam, awayTeam));
   }
 
+  finishMatch(homeTeam: string, awayTeam: string): void {
+    this.matches = this.matches.filter(match => !isSameMatch(match, homeTeam, awayTeam));
+  }
+
   getSummary(): Match[] {
     return this.matches
       .slice()
