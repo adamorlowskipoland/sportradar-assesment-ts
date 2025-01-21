@@ -64,7 +64,10 @@ describe('Scoreboard', () => {
       expect(() => scoreboard.startMatch()).toThrow();
       expect(() => scoreboard.startMatch('Team 1')).toThrow();
       expect(() => scoreboard.startMatch('Team 1', 'Team 1')).toThrow();
+      expect(() => scoreboard.startMatch(1, 1)).toThrow();
+      expect(() => scoreboard.startMatch(1, 2)).toThrow();
       expect(() => scoreboard.startMatch('Team 1', 'Team 2', 'Team 3')).toThrow();
+      expect(() => scoreboard.startMatch(1, 'Team 2', 1, 2, 3)).toThrow();
     });
 
     it('when adding a duplicate match', () => {
