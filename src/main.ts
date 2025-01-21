@@ -1,10 +1,6 @@
-import { setupCounter } from './lib/counter'
+import { Scoreboard } from './lib/scoreboard';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <button id="counter" type="button"></button>
-  </div>
-`
+const scoreboard = new Scoreboard();
+(document as Document & { scoreboard: Scoreboard }).scoreboard = scoreboard;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
+console.log(scoreboard);
