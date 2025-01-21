@@ -22,7 +22,13 @@ describe('Match', () => {
       });
 
       it('should throw an error when more than two teams are provided', () => {
-        expect(() => new Match('Team 1', 'Team 2', 'Team 3')).toThrow();
+        expect(() => new Match('Team 1', 'Team 2', 3)).toThrow();
+      });
+
+      it('should throw an error when number is passed as a team name', () => {
+        expect(() => new Match(1, 'Team 2')).toThrow();
+        expect(() => new Match('Team 1', 2)).toThrow();
+        expect(() => new Match(1, 2)).toThrow();
       });
 
       it('should throw an error when the home team and away team are the same', () => {
