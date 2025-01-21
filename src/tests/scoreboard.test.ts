@@ -73,6 +73,27 @@ describe('Scoreboard', () => {
       expect(() => scoreboard.startMatch('Team 1', 'Team 2')).toThrow();
     });
 
+    it('when adding a match with same, reverted teams', () => {
+      const scoreboard = new Scoreboard();
+      scoreboard.startMatch('Team 1', 'Team 2');
+      expect(() => scoreboard.startMatch('Team 2', 'Team 1')).toThrow();
+    });
+
+    describe('when updating a match', () => {
+
+      it('with invalid arguments', () => {
+        const scoreboard = new Scoreboard();
+        scoreboard.startMatch('Team 1', 'Team 2');
+        expect(() => scoreboard.updateScore('Team 1', 'Team 2', 1, 2, 4)).toThrow();
+      });
+
+      it('with invalid score', () => {
+        const scoreboard = new Scoreboard();
+        scoreboard.startMatch('Team 1', 'Team 2');
+        expect(() => scoreboard.updateScore('Team 1', 'Team 2', '1', 2)).toThrow();
+      });
+
+    });
   });
 
 });
